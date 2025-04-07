@@ -137,7 +137,8 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
         </button>
 
         {/* Settings Panel */}
-        <AnimatePresence>
+        {/* @ts-ignore */}
+        <AnimatePresence mode="wait">
           {isExpanded && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95, x: -20 }}
