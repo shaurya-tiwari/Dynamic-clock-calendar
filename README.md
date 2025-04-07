@@ -1,47 +1,75 @@
-# React Clock App with iOS-style Depth Effect
+# Dynamic Clock Calendar
 
-A modern, responsive clock application built with React and Tailwind CSS, featuring an iOS-style depth effect. The app includes multiple features:
+A modern, customizable clock application with multiple display modes and a built-in Pomodoro timer.
 
 ## Features
 
-- **Analog and Digital Clock** with beautiful depth effects
-- **Pomodoro Timer** for productivity
-- **Customization Options**:
-  - Multiple background themes
-  - Adjustable clock sizes
-  - Font customization
-  - Color options
-  - Toggle for seconds display
-  - Toggle for date display
-- **Responsive Design** that works on all screen sizes
+- **Customizable Clock**: Change colors, fonts, and size
+- **Multiple Display Modes**: 
+  - Simple text mode
+  - Cards mode with glassmorphism effect
+- **Pomodoro Timer**: Built-in productivity timer
+- **Orientation Options**: Display the clock horizontally or vertically
+- **Custom Backgrounds**: Upload your own image or use URL
+- **Responsive Design**: Works on all screen sizes
 
-## Tech Stack
+## Technologies Used
 
-- React with TypeScript
-- Tailwind CSS for styling
+- React
+- TypeScript
+- TailwindCSS
 - Framer Motion for animations
-- Date-fns for date handling
-- HeadlessUI for accessible UI components
 
 ## Getting Started
 
-1. Clone the repository
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/shaurya-tiwari/Dynamic-clock-calendar.git
+   cd Dynamic-clock-calendar
+   ```
+
 2. Install dependencies:
-```
-npm install
-```
+   ```
+   npm install
+   ```
+
 3. Start the development server:
-```
-npm start
-```
+   ```
+   npm start
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Usage
 
-- Toggle between the clock and Pomodoro timer using the buttons below the clock
-- Access settings by clicking the "Settings" button
-- Customize the appearance to your preference
-- Use the Pomodoro timer for focused work sessions
+### Settings Panel
+
+Access the settings panel by clicking the gear icon in the top-left corner. The settings panel includes:
+
+- **Appearance Tab**: Change background, clock color, and font
+- **Display Tab**: Adjust clock size, orientation, and toggle date/seconds display
+- **Mode Tab**: Switch between clock and Pomodoro modes, or toggle cards mode
+
+### Pomodoro Timer
+
+The built-in Pomodoro timer helps you stay productive with timed work sessions.
+
+### Cards Mode
+
+Enable cards mode for a stylish glassmorphism effect on the clock digits.
 
 ## License
 
 MIT
+
+## Acknowledgments
+
+- Inspired by modern UI design principles
+- Built with React and TypeScript for a robust, type-safe application
