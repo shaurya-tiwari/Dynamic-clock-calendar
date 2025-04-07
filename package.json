@@ -2,20 +2,21 @@
   "name": "clock-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shaurya-tiwari.github.io/Dynamic-clock-calendar",
   "dependencies": {
     "@headlessui/react": "^2.2.1",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.126",
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.1",
-    "date-fns": "^4.1.0",
-    "framer-motion": "^12.6.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "@types/node": "^16.18.76",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "date-fns": "^3.3.1",
+    "framer-motion": "^11.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -24,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +49,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.4.1"
   }
 }
