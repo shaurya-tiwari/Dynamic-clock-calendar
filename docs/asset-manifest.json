@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Dynamic-clock-calendar/static/css/main.e5256baf.css",
+    "main.js": "/Dynamic-clock-calendar/static/js/main.98f1d52b.js",
+    "static/js/453.dfd4868f.chunk.js": "/Dynamic-clock-calendar/static/js/453.dfd4868f.chunk.js",
+    "index.html": "/Dynamic-clock-calendar/index.html",
+    "main.e5256baf.css.map": "/Dynamic-clock-calendar/static/css/main.e5256baf.css.map",
+    "main.98f1d52b.js.map": "/Dynamic-clock-calendar/static/js/main.98f1d52b.js.map",
+    "453.dfd4868f.chunk.js.map": "/Dynamic-clock-calendar/static/js/453.dfd4868f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5256baf.css",
+    "static/js/main.98f1d52b.js"
+  ]
+}
