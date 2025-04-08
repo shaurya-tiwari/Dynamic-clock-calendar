@@ -2,7 +2,7 @@
   "name": "clock-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shaurya-tiwari.github.io/Dynamic-clock-calendar",
+  "homepage": "https://shaurya-tiwari.github.io/Dynamic-clock-calendar/",
   "dependencies": {
     "date-fns": "2.29.3",
     "framer-motion": "11.0.8",
