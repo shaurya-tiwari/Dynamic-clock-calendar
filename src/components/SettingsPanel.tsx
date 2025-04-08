@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-interface ClockSettings {
-  background: string;
-  backgroundImage: string;
-  clockSize: string;
-  clockColor: string;
-  fontFamily: string;
-  showSeconds: boolean;
-  showDate: boolean;
-  orientation: 'horizontal' | 'vertical';
-  useCardsMode: boolean;
-}
+import { ClockSettings } from '../types';
+import { FiSettings, FiClock, FiCalendar, FiLayout, FiType, FiSun, FiMoon, FiGrid, FiList, FiMaximize2, FiMinimize2, FiPieChart, FiBox, FiClock as FiTimer } from 'react-icons/fi';
 
 interface SettingsPanelProps {
   settings: ClockSettings;
@@ -20,6 +10,10 @@ interface SettingsPanelProps {
   isPomodoroMode: boolean;
   togglePomodoroMode: () => void;
   toggleCardsMode: () => void;
+  isCalendarMode: boolean;
+  toggleCalendarMode: () => void;
+  isTimeCalendarMode: boolean;
+  toggleTimeCalendarMode: () => void;
 }
 
 const SettingsPanel: React.FC<SettingsPanelProps> = ({ 
@@ -28,7 +22,11 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
   onClose,
   isPomodoroMode,
   togglePomodoroMode,
-  toggleCardsMode
+  toggleCardsMode,
+  isCalendarMode,
+  toggleCalendarMode,
+  isTimeCalendarMode,
+  toggleTimeCalendarMode,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('appearance');
@@ -122,6 +120,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
     setIsExpanded(!isExpanded);
   };
 
+  const handleUpdateSettings = (updates: Partial<ClockSettings>) => {
+    setSettings(prev => ({
+      ...prev,
+      ...updates
+    }));
+  };
+
   return (
     <div className="fixed left-4 top-4 z-50">
       <div className="relative">
@@ -160,16 +165,24 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
               </div>
               
               {/* Tabs */}
-              <div className="flex border-b border-white/10">
+              <div className="flex space-x-2 mb-6">
                 <button
-                  className={`flex-1 py-2 px-4 ${activeTab === 'appearance' ? 'bg-white/10 font-medium' : 'hover:bg-white/5'}`}
                   onClick={() => setActiveTab('appearance')}
+                  className={`flex-1 py-2 px-4 rounded ${
+                    activeTab === 'appearance'
+                      ? 'bg-gray-700'
+                      : 'bg-gray-600 hover:bg-gray-700'
+                  }`}
                 >
                   Appearance
                 </button>
                 <button
-                  className={`flex-1 py-2 px-4 ${activeTab === 'display' ? 'bg-white/10 font-medium' : 'hover:bg-white/5'}`}
                   onClick={() => setActiveTab('display')}
+                  className={`flex-1 py-2 px-4 rounded ${
+                    activeTab === 'display'
+                      ? 'bg-gray-700'
+                      : 'bg-gray-600 hover:bg-gray-700'
+                  }`}
                 >
                   Display
                 </button>
@@ -342,29 +355,53 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                   <div className="space-y-4">
                     {/* Mode Toggles */}
                     <div>
-                      <h3 className="font-medium mb-3">Clock Mode</h3>
-                      <div className="space-y-3">
-                        <button
-                          onClick={togglePomodoroMode}
-                          className="w-full py-2 px-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-md shadow-md transition-all flex items-center justify-between"
-                        >
-                          <span className="font-medium">{isPomodoroMode ? 'Switch to Clock' : 'Switch to Pomodoro'}</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        </button>
-                        
-                        {!isPomodoroMode && (
+                      <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300">Mode</h3>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600 dark:text-gray-400">Pomodoro Timer</span>
                           <button
-                            onClick={toggleCardsMode}
-                            className="w-full py-2 px-4 bg-gradient-to-r from-blue-500 to-teal-400 hover:from-blue-600 hover:to-teal-500 rounded-md shadow-md transition-all flex items-center justify-between"
+                            onClick={togglePomodoroMode}
+                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                              isPomodoroMode ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
+                            }`}
                           >
-                            <span className="font-medium">{settings.useCardsMode ? 'Switch to Simple Mode' : 'Switch to Cards Mode'}</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                            </svg>
+                            <span
+                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                                isPomodoroMode ? 'translate-x-6' : 'translate-x-1'
+                              }`}
+                            />
                           </button>
-                        )}
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600 dark:text-gray-400">Calendar Mode</span>
+                          <button
+                            onClick={toggleCalendarMode}
+                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                              isCalendarMode ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
+                            }`}
+                          >
+                            <span
+                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                                isCalendarMode ? 'translate-x-6' : 'translate-x-1'
+                              }`}
+                            />
+                          </button>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600 dark:text-gray-400">Time & Calendar</span>
+                          <button
+                            onClick={toggleTimeCalendarMode}
+                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                              isTimeCalendarMode ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
+                            }`}
+                          >
+                            <span
+                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                                isTimeCalendarMode ? 'translate-x-6' : 'translate-x-1'
+                              }`}
+                            />
+                          </button>
+                        </div>
                       </div>
                     </div>
                     
