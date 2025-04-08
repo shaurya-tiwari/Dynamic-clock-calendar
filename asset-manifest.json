@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Dynamic-clock-calendar/static/css/main.cf00704e.css",
+    "main.js": "/Dynamic-clock-calendar/static/js/main.1bb4cab3.js",
+    "index.html": "/Dynamic-clock-calendar/index.html",
+    "main.cf00704e.css.map": "/Dynamic-clock-calendar/static/css/main.cf00704e.css.map",
+    "main.1bb4cab3.js.map": "/Dynamic-clock-calendar/static/js/main.1bb4cab3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf00704e.css",
+    "static/js/main.1bb4cab3.js"
+  ]
+}
